@@ -1,15 +1,19 @@
 import axios from 'axios';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function App() {
+	const [count, setCount] = useState(5)
 	useEffect(() => {
-		axios('https://jsonplaceholder.typicode.com/posts')
-		.then(res => console.log(res))
+		axios({
+			baseURL: import.meta.VITE_DB_URL,
+			url: '/posts',
+		})
+			.then(res => console.log(res))
 	})
 
 	return (
 		<div>
-			<h1>Vazgen App</h1>
+			<h1>Edgar App</h1>
 		</div>
 	)
 }

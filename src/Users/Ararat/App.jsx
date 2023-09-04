@@ -7,7 +7,7 @@ function App () {
 	useEffect(() => {
 		axios.get('https://dummyjson.com/users');
 		.then(res => {
-			setInfo(res.data);
+			setUsers(res.data);
 		})
 		.catch(err => {
 			console.log(err);

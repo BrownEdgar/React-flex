@@ -1,9 +1,18 @@
-
+import axios from "axios";
+import { useEffect, useState } from "react";
+import Users from "./components/Users";
 
 export default function App() {
-	return (
-		<div>
-			<h1>Vazgen App</h1>
-		</div>
-	)
+  const [user, setuser] = useState([]);
+  useEffect(() => {
+    axios("https://dummyjson.com/users")
+      .then((res) => res.data.users)
+      .then((user) => setuser(user));
+  });
+
+  return (
+    <div>
+      <Users users={user} />
+    </div>
+  );
 }

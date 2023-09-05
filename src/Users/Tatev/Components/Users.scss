@@ -1,0 +1,25 @@
+.Users {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px 100px;
+    margin-top: 50px;
+    &__item {
+        border: 1px solid grey;
+        border-radius: 5px;
+        padding: 20px 30px;
+        position: relative;
+        width: 35%;
+    }
+    &__title {
+        color: grey;
+    }
+    &__img{
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 20px;
+        left: 10px;
+    }
+}

@@ -1,0 +1,23 @@
+#root {
+    padding: 10px;
+    width: 90%;
+    margin: 0 auto;
+    .App {
+        text-align: center;
+    }
+    button {
+        background-color: teal;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+        margin-top: 20px;
+        font-size: 20px;
+        &:active {
+            scale: 1.1;
+            background-color: rgb(2, 212, 212);
+            color: black;
+        }
+    }
+}

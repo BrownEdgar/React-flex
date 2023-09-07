@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-import axios from "axios";
-import { useEffect, useState } from "react";
-import Users from './Components/Users'
-import './App.css'
-
-export default function App() {
-	const [users, setUsers] = useState([])
-	useEffect(() => {
-		axios.get("https://dummyjson.com/users")
-		.then((res) => {
-			console.log(res.data.users);
-			setUsers(res.data.users)
-		})
-	}, [])
-
-
-=======
 import { useState } from "react";
 import Users from './Components/Users'
 import './App.scss'
@@ -50,7 +32,6 @@ const arr = [
 
 export default function App() {
 	const [steps, setSteps] = useState(arr)
->>>>>>> 1c3b0b56aaa7a7c763accf5d8e1e235b43bc76c4
 
 	return (
 		<div className={classNames("App")}>

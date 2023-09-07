@@ -32,21 +32,6 @@ const arr =[
 ]
 
 export default function App() {
-<<<<<<< HEAD
-	const [users, setUsers] = useState(null)
-	console.log(import.meta.env.VITE_DB_URL)
-	const getUsers = () => {
-		axios(import.meta.env.VITE_DB_URL)
-			.then(res => setUsers(res.data.users))
-
-	}
-
-	return (
-		<div className="App">
-			<h1>Users info</h1>
-			<button onClick={getUsers}>See Users</button>
-			<Users users={users} />
-=======
 	const [datas, setDatas] = useState(arr)
 
 	useEffect(() => {
@@ -56,7 +41,6 @@ export default function App() {
 	return (
 		<div className = {classNames("App")}>
 			<Users datas={datas}/>
->>>>>>> 1c3b0b56aaa7a7c763accf5d8e1e235b43bc76c4
 		</div>
 	)
 }

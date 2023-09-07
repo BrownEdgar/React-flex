@@ -11,12 +11,15 @@ export default function App() {
 	const [data, setData] = useState([])
 
 	useEffect(() => {
+		console.log(1)
 		if (currentIndex !== null) {
 			axios({
-				method: "delete",
+				method: "get",
 				baseURL: 'https://jsonplaceholder.typicode.com/',
-				url: 'users/2'
-			}).then(res => console.log(res))
+				url: 'users'
+			})
+			.then(res => setData(res.data))
+			.catch(err => console.log(err))
 		}
 	}, [currentIndex])
 

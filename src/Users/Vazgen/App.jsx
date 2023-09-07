@@ -32,22 +32,6 @@ const arr = [
 ]
 
 export default function App() {
-<<<<<<< HEAD
-	const [users, setUsers] = useState([]);
-	useEffect(() => {
-		axios.get('https://dummyjson.com/users')
-			.then((response) => {
-				setUsers(response.data.users);
-			})
-	}, []);
-
-	return (
-		<div className="App">
-			<h2 className="App_title">Users List</h2>
-			<Users users={users} />
-		</div>
-	);
-=======
   const [info, setInfo] = useState(arr)
 
 
@@ -58,5 +42,4 @@ export default function App() {
 			<Cars info={info}/>
 		</div>
   );
->>>>>>> 1c3b0b56aaa7a7c763accf5d8e1e235b43bc76c4
 }

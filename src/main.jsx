@@ -1,5 +1,4 @@
 import ReactDOM from "react-dom/client";
-
 import App from "./Users/Edgar/axios/App";
 import "./index.css";
 

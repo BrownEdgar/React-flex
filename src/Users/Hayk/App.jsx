@@ -3,19 +3,6 @@ import { useState } from "react";
 import Users from "./components/Users";
 
 export default function App() {
-<<<<<<< HEAD
-  const [user, setuser] = useState([]);
-  useEffect(() => {
-    axios("https://dummyjson.com/users", {
-			params: {
-				limit:5,
-				skip:6
-			}
-		})
-      .then((res) => res.data.users)
-      .then((user) => setuser(user));
-  });
-=======
   const [information] = useState([
     {
       id: 1,
@@ -42,7 +29,6 @@ export default function App() {
       desc: "I am alone, and feel the charm of existence in this spot, which was created for the bliss...",
     },
   ]);
->>>>>>> 1c3b0b56aaa7a7c763accf5d8e1e235b43bc76c4
 
   return (
     <div className="container">

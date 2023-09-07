@@ -11,6 +11,13 @@
   },
   "dependencies": {
     "axios": "^1.5.0",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    "classname": "^0.0.0",
+>>>>>>> c293cb688e6c9edac51f95766223ab1198e95c7d
+>>>>>>> 1c3b0b56aaa7a7c763accf5d8e1e235b43bc76c4
     "classnames": "^2.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

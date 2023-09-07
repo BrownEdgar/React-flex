@@ -1,5 +1,7 @@
 import "./Users.scss"
+import classNames from "classnames"
 
+<<<<<<< HEAD
 export default function Users({ users }) {
   return (
     <div className="Users">
@@ -16,6 +18,22 @@ export default function Users({ users }) {
           )
         })
       }
+=======
+export default function Users({datas}) {
+  return (
+    <div className ={classNames("Datas")}>
+        {
+            datas.map(data => {
+                return (
+                    <div className ={classNames("Datas_item")} key = {data.id}>
+                        <img src={data.image} alt="" />
+                        <h3 className ={classNames("Datas_title")}>{data.title}</h3>
+                        <p className ={classNames("Datas_desc")}>{data.desc}</p>
+                    </div>
+                )
+            })
+        }
+>>>>>>> 1c3b0b56aaa7a7c763accf5d8e1e235b43bc76c4
     </div>
   )
 }

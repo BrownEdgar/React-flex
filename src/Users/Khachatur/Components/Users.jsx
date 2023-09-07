@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 
+=======
+import './Users.scss'
+import classNames from "classnames";
+>>>>>>> 1c3b0b56aaa7a7c763accf5d8e1e235b43bc76c4
 
-export default function Users({users}) {
+export default function Users({steps}) {
     return (
+<<<<<<< HEAD
         <div className="Users">
             {users.map((user => {
                 return (
@@ -14,6 +20,19 @@ export default function Users({users}) {
 									</div>
 								)
             }))}
+=======
+        <div className="Steps">
+            {
+                steps.map((steps) => (
+                    <div className={classNames("Steps__item")} key={steps.id}>
+                        <img src={steps.image} alt="img" />
+                        <h1 className={classNames("Steps__title")}>{steps.title}</h1>
+                        <h2 className={classNames("Steps__desc")}>{steps.desc}</h2>
+                    </div>
+                ))
+            }
+>>>>>>> 1c3b0b56aaa7a7c763accf5d8e1e235b43bc76c4
         </div>
+            
     )
 }

@@ -1,21 +1,14 @@
 import "./Users.scss";
 
-export default function Users({ users }) {
+export default function Users({ information }) {
   return (
-    <div className="Users">
-      {users.map((user) => {
+    <div className="container">
+      {information.map((info) => {
         return (
-          <div key={user.id} className="Users__item">
-            <h1>name:{user.firstName}</h1>
-            <h2>lastname:{user.lastName}</h2>
-            <p>age:{user.age}</p>
-            <p>gender:{user.gender}</p>
-            <p>email:{user.email}</p>
-            <p>phone:{user.phone}</p>
-            <p>birtDate:{user.birthDate}</p>
-            <p>height:{user.height}</p>
-            <p>weight:{user.weight}</p>
-            <p>addres:{user.address.address}</p>
+          <div className="box" key={info.id}>
+            <img className="box__image" src={info.image} alt="" />
+            <h5 className="box__title">{info.title}</h5>
+            <p className="box__desc">{info.desc}</p>
           </div>
         );
       })}

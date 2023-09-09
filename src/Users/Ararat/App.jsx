@@ -1,30 +1,47 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
+import { GoLocation } from 'react-icons/go';
+import { AiOutlineFolder } from 'react-icons/ai';
+import { AiOutlineIdcard } from 'react-icons/ai';
+import { MdOutlineCalendarMonth } from 'react-icons/md';
+import './App.css';
 
 function App() {
-	const [users, setUsers] = useState([]);
+  const date = new Date();
+  
+  const obj = {
+    title: "2023 Intern - Software Engineer (Java or Javascript)",
+    location: "Yerevan, Armenia",
+    folder: "Other",
+    id: "R134783",
+    date: date.toLocaleDateString(),
+  };
 
-	useEffect(() => {
-		axios.get('https://dummyjson.com/users')
-			.then(res => {
-				setUsers(res.data.users);
-			})
-			.catch(err => {
-				console.log(err);
-			})
-	}, [])
-
-	return (
-
-		<div className='App'>
-			<h1>User List</h1>
-			<ul>
-				{users.map(user => (
-					<li key={user.id}>{user.firstName}</li>
-				))}
-			</ul>
-		</div>
-	)
-
+  return (
+    <div className="container">
+      <img src="./public/main.jpg" alt="Main Image" className="top-image" />
+      <div className="container_content">
+        <p>{obj.title}</p>
+        <div className="container_icons">
+          <span>
+            <GoLocation />{obj.location}
+          </span>
+          <span>
+            <AiOutlineFolder />{obj.folder}
+          </span>
+          <span>
+            <AiOutlineIdcard />{obj.id}
+          </span>
+          <span>
+            <MdOutlineCalendarMonth />{obj.date}
+          </span>
+        </div>
+        <div className="container_btn">
+          <button>Save Job</button>
+          <button>Apply Now</button>
+        </div>
+      </div>
+    </div>
+  );
 }
+
 export default App;

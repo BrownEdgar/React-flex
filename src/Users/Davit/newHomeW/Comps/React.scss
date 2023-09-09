@@ -1,0 +1,72 @@
+.React{
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	background: rgb(173,82,123);
+	background: linear-gradient(90deg, rgba(173,82,123,1) 0%, rgba(126,89,159,1) 69%, rgba(173,158,199,1) 100%);
+	&__title{
+		margin-left: 30px;
+		font-size: 40px;
+		color: whitesmoke;
+	}
+	.sp{
+		font-size: 25px;
+		color: whitesmoke;
+		padding-left: 10px;
+	}
+	&__LocationIcon{
+		margin-left: 30px;
+		padding-left: 20px;
+		font-size: 20px;
+		color: wheat;
+	}
+	&__FileIcon{
+		padding-left: 25px;
+		font-size: 20px;
+		color: wheat;
+	}
+	&__DocsIcon{
+		padding-left: 30px;
+		font-size: 20px;
+		color: wheat;
+	}
+	.React__BtnDiv{
+		margin-left: 30px;
+		& > .React__FirstBtn{
+			font-size: 25px;
+			color: whitesmoke;
+			background-color: rgba(0,0,0,0);
+			padding: 15px 100px 15px 100px;
+			border-radius: 50px 50px;
+			border-color: rgb(245, 245, 245);
+			margin-top: 20px;
+			&:hover{
+				transform: scale(1.05);
+				transition: 200ms ease;
+			}
+			&:active{
+				transform: scale(1.10);
+				transition: none;
+			}
+		}
+		& > .React__SecBtn{
+			margin-top: 20px;
+			margin-left: 20px;
+			font-size: 20px;
+			color: whitesmoke;
+			background-color:	rgb(47, 114, 215);
+			padding: 15px 50px 15px 50px;
+			border-radius: 50px 50px;
+			border-color: rgb(245, 245, 245);
+			border: none;
+			&:hover{
+				transform: scale(1.05);
+				transition: 200ms ease;
+			}
+			&:active{
+				transform: scale(1.10);
+				transition: none;
+			}
+		}
+	}
+}

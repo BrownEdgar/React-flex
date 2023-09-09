@@ -1,12 +1,11 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
-import './App.css'
-import classNames from 'classnames'
+import { useState } from 'react'
 import Users from './Components/Users'
+
+import './App.css'
 
 export default function App() {
 	
-	const [posts, setPost] = useState([
+	const [posts] = useState([
 		{
 			id: 1, 
 			image: 'https://images.unsplash.com/photo-1611434597131-949cdb202148?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80',
@@ -32,7 +31,6 @@ export default function App() {
 			apoutPhotograph: '1972 Ford Mustang Mach 1',
 		},
 	])
-
 
 	return (
 		<div className='container'>

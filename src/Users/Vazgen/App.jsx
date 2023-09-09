@@ -1,12 +1,12 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+
+import { useState } from "react";
 import Cars from './Components/Cars/Cars'
-import './App.scss'
 import classNames from "classnames";
+import './App.scss'
 
 const arr = [
-  {
-    id: 1,
+	{
+		id: 1,
 		image: "https://wallpapers.com/images/hd/mercedes-gts-ctjb57m2mcmylkts.jpg",
 		title: "Mercedes AMG GT Black Series",
 		desc: "The Mercedes-AMG GT Black Series is a high-performance sports car that has garnered a lot of attention in the automotive world. It's a track-focused variant of the Mercedes-AMG GT lineup, known for its impressive power and aerodynamics. As a car enthusiast, you'll appreciate the following key features:1. **Powerful Engine**: The AMG GT Black Series is powered by a 4.0-liter twin-turbocharged V8 engine. It produces a staggering 720 horsepower, making it one of the most powerful production cars from Mercedes-AMG. 2. **Performance**: This car is designed for extreme performance on the track. It can accelerate from 0 to 60 mph in just around 3 seconds, and it has a top speed of over 200 mph."
@@ -32,14 +32,14 @@ const arr = [
 ]
 
 export default function App() {
-  const [info, setInfo] = useState(arr)
+	const [info] = useState(arr)
 
 
-  return (
-  <div className = {classNames("App")}>
-      <h2>Black Series (AMG)</h2>
-      <br />
-			<Cars info={info}/>
+	return (
+		<div className={classNames("App")}>
+			<h2>Black Series (AMG)</h2>
+			<br />
+			<Cars info={info} />
 		</div>
-  );
+	);
 }

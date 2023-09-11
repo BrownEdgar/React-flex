@@ -5,6 +5,7 @@ import Users from "./components/Users";
 export default function App() {
   const [information] = useState([
     {
+      id: 1,
       title: "2023 Intern - Software Engineer (Java or JavaScript)",
       adress: "Yerevan,Armenia",
       folder: "Other",

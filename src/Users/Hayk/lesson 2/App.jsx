@@ -1,6 +1,8 @@
 // import axios from "axios";
 import { useState } from "react";
 import Users from "./components/Users";
+import "./App.scss";
+
 
 export default function App() {
   const [information] = useState([

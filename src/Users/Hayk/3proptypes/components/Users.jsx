@@ -4,37 +4,37 @@ import "./Users.scss";
 export default function Users({ information }) {
   return (
     <div className="container">
-      {information.map((info) => {
-        return (
-          <div className="box" key={info.id}>
-            <h1>
-              {info.firt_name + " "}
-              {info.last_name}
-            </h1>
-            <span>{info.street}</span>
-            <span>{info.house}</span>
-            <span>{info.city}</span>
-            <span>{info.age}</span>
-            <span>{info.salary}</span>
-            <span>{info.bestFriend}</span>
-          </div>
-        );
-      })}
+
+      return (
+      <div className="box">
+        <h1>
+          {information.firt_name + " "}
+          {information.last_name}
+        </h1>
+        <span>{information.addres.street}</span>
+        <span>{information.addres.house}</span>
+        <span>{information.addres.city}</span>
+        <span>{information.age}</span>
+        <span>{information.salary}</span>
+        <span>{information.bestFriend}</span>
+      </div>
+      );
+
     </div>
   );
 }
-/////////Chi stacvum mots)))
+
 Users.propTypes = {
-  information: PropTypes.objectOf({
+  information: PropTypes.exact({
     id: PropTypes.number,
     firt_name: PropTypes.string.isRequired,
     last_name: PropTypes.string.isRequired,
-    addres: PropTypes.objectOf(
-      PropTypes.exact({
+    addres: PropTypes.exact(
+      {
         street: PropTypes.string,
         house: PropTypes.number,
         city: PropTypes.string,
-      })
+      }
     ),
     age: PropTypes.number.isRequired,
     salary: PropTypes.number.isRequired,

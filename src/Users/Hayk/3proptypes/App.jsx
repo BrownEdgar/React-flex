@@ -16,7 +16,7 @@ import { useState } from "react";
 import Users from "./components/Users";
 
 export default function App() {
-  const [information] = useState([users]);
+  const [information] = useState(users);
   console.log(information);
 
   return (

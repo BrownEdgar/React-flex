@@ -1,9 +1,9 @@
 Վերցնել այս օբյեկտը՝
 const users = {
   id: 1,
-  firt_name: "Sebastian",
+  first_name: "Sebastian",
   last_name: "Rogriges",
-  addres: {
+  address: {
     street: "Halabyan",
     house: 54,
     city:"Yerevan"

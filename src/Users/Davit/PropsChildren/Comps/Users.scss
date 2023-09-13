@@ -1,0 +1,44 @@
+body{
+	background-color: rgb(57, 55, 55);
+}
+
+.User{
+	.CloseBtn{
+		position: absolute;
+		font-size: 20px;
+		color: white;
+		top: 15px;
+		right: 15px;
+		&:active{
+			transform: scale(0.9);
+		}
+	}
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	text-align: center;
+	user-select: none;
+	gap: 60px 10px;
+	&__content{
+		position: relative;
+		width:49%;
+		color: rgb(184, 183, 183);
+		border: 1px solid rgb(163, 163, 163);
+		&:hover{
+			background-color: rgb(52, 52, 52);
+			transform: scale(1.03);
+			transition: 500ms ease;
+			color: white;
+			border: none;
+		}
+	}	
+	&__img{
+		padding: 20px;
+		width: 50%;
+		border-radius: 50%;
+		user-select: none;
+	}
+		&__title{
+			font-size: 35px;
+		}
+}

@@ -1,0 +1,8 @@
+.wrap{
+    margin: 20px;
+    border-radius: 10px;
+    border: 2px solid turquoise;
+    padding: 1em;
+    width: 400px;
+    display: inline-block;
+}

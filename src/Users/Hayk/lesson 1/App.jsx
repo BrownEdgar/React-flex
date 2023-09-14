@@ -12,19 +12,19 @@ export default function App() {
     },
     {
       id: 2,
-      image: "./src/Users/Tatev/Images/2.jpg",
+      image: "./src/Users/Hayk/Images/2.jpg",
       title: "Process Step Two",
       desc: "I am alone, and feel the charm of existence in this spot, which was created for the bliss...",
     },
     {
       id: 3,
-      image: "./src/Users/Tatev/Images/3.jpg",
+      image: "./src/Users/Hayk/Images/3.jpg",
       title: "Process Step Three",
       desc: "I am alone, and feel the charm of existence in this spot, which was created for the bliss...",
     },
     {
       id: 4,
-      image: "./src/Users/Tatev/Images/4.jpg",
+      image: "./src/Users/Hayk/Images/4.jpg",
       title: "Process Step Four",
       desc: "I am alone, and feel the charm of existence in this spot, which was created for the bliss...",
     },

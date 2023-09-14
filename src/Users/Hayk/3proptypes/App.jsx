@@ -19,7 +19,6 @@ const users = {
 
 export default function App() {
   const [information] = useState(users);
-
   return (
     <div className="container">
       <Users information={information} />

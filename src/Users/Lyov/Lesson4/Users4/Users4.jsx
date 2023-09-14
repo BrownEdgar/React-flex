@@ -12,7 +12,6 @@ export default function Users4({ data, deleteId, }) {
   const onDeleteButton = (id) => {
     setID(id)
     setIsOpen(!isOpen)
-
   }
 
 
@@ -22,7 +21,7 @@ export default function Users4({ data, deleteId, }) {
         data.map(elem => {
           return (
             <div className="box" key={elem.id}>
-              <span className="icon" onClick={() => onDeleteButton(elem.id) }>
+              <span className="icon" onClick={() => onDeleteButton(elem.id)}>
                 <FontAwesomeIcon icon={faCircleXmark} />
               </span>
               <img src={elem.image} alt='' />

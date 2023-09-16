@@ -7,6 +7,10 @@
       width: 100%;
       padding: 12px;
       margin: 10px;
+      &[type="checkbox"] {
+        width: 30px;
+        margin-right: 12px;
+      }
     }
   }
   ul {

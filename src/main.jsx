@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import App from "./Users/Edgar/FORM/FormTable/App";
+import App from "./Users/Khachatur/FormTable/App";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(<App />);

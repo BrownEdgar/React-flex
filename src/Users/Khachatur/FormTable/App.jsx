@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import {AiFillCloseSquare} from 'react-icons/ai'
+import { AiFillCloseSquare } from 'react-icons/ai'
 
 import "./App.scss"
 
@@ -25,16 +25,16 @@ export default function App() {
         })
         const x = new Set(newBooks.map(book => book.language));
         const y = new Set(newBooks.map((book) =>
-                new Date(book.date_published).getFullYear()));
+          new Date(book.date_published).getFullYear()));
         setLanguages(Array.from(x).toSorted())
-        setYear(Array.from(y).toSorted().slice(0,-1))
+        setYear(Array.from(y).toSorted().slice(0, -1))
       })
   }, [])
 
 
   useEffect(() => {
     renderBooks()
-  }, [currentLanguage,currentYear])
+  }, [currentLanguage, currentYear])
 
   useEffect(() => {
     setFilteredCount(books.filtered.length)
@@ -42,15 +42,15 @@ export default function App() {
 
 
   const handleLanguageChange = (e) => {
-    setCurrentLanguage(e.target.value || '')
+    setCurrentLanguage(e.target.value || 'all')
   }
 
   const handleYearsChange = (e) => {
-    setCurrentYear(e.target.value || "")
+    setCurrentYear(e.target.value || "all")
   }
 
   const deleteBook = (id) => {
-    const  result = books.original.filter(book => book.id !== id)
+    const result = books.original.filter(book => book.id !== id)
     setBooks((originalBooks) => ({
       original: result,
       filtered: originalBooks.filtered.filter((book) => book.id !== id),
@@ -60,9 +60,9 @@ export default function App() {
   const renderBooks = () => {
     let result = [...books.original]
     if (currentLanguage !== 'all') {
-        result = result.filter(book => book.language === currentLanguage);
-    } if (currentYear !== "all"){
-        result = result.filter((book) => new Date(book.date_published).getFullYear() === parseInt(currentYear));
+      result = result.filter(book => book.language === currentLanguage);
+    } if (currentYear !== "all") {
+      result = result.filter((book) => new Date(book.date_published).getFullYear() === parseInt(currentYear));
     }
     setBooks({ ...books, filtered: result })
 
@@ -114,7 +114,7 @@ export default function App() {
                   <td>{book.price}</td>
                   <td>{book.wants_to_read}</td>
                   <td>{book.date_published}</td>
-                  <td><AiFillCloseSquare onClick={() => deleteBook(book.id)}/></td>
+                  <td><AiFillCloseSquare onClick={() => deleteBook(book.id)} /></td>
                 </tr>
               )
             })

@@ -26,6 +26,31 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    const renderBooks = () => {
+      let filteredResult = [...books.original];
+
+      if (currentLanguage !== "all") {
+        filteredResult = filteredResult.filter(
+          (book) => book.language === currentLanguage
+        );
+      }
+
+      if (currentYear !== "") {
+        filteredResult = filteredResult.filter(
+          (book) =>
+            new Date(book.date_published).getFullYear() === parseInt(currentYear)
+        );
+      }
+
+      // Sort the filteredResult consistently by book title
+      filteredResult.sort((a, b) => {
+        if (a.title < b.title) return -1;
+        if (a.title > b.title) return 1;
+        return 0;
+      });
+
+      setBooks({ ...books, filtered: filteredResult });
+    }
     renderBooks();
   }, [currentLanguage, currentYear]);
 
@@ -45,31 +70,7 @@ export default function App() {
     }));
   };
 
-  const renderBooks = () => {
-    let filteredResult = [...books.original];
 
-    if (currentLanguage !== "all") {
-      filteredResult = filteredResult.filter(
-        (book) => book.language === currentLanguage
-      );
-    }
-
-    if (currentYear !== "") {
-      filteredResult = filteredResult.filter(
-        (book) =>
-          new Date(book.date_published).getFullYear() === parseInt(currentYear)
-      );
-    }
-
-    // Sort the filteredResult consistently by book title
-    filteredResult.sort((a, b) => {
-      if (a.title < b.title) return -1;
-      if (a.title > b.title) return 1;
-      return 0;
-    });
-
-    setBooks({ ...books, filtered: filteredResult });
-  };
 
   useEffect(() => {
     setFilteredBookCount(books.filtered.length);
@@ -94,8 +95,11 @@ export default function App() {
           <option value="">All Years</option>
           {Array.from(
             new Set(
-              books.original.map((book) =>
-                new Date(book.date_published).getFullYear()
+              books.original.map((book) => {
+                console.log(book.date_published)
+                return new Date(book.date_published).getFullYear()
+              }
+
               )
             )
           )

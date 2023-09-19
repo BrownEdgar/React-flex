@@ -14,20 +14,20 @@ export default function App() {
   const [dates, setDates] = useState([])
   const [currentDate, setCurrentDate] = useState("")
 
-  useEffect(() =>{
+  useEffect(() => {
     axios("./Books-data.json")
-    .then(res => {
-      const newBooks = res.data.slice(0, 100)
-      setBooks({
-        original: newBooks,
-        filtered: newBooks
+      .then(res => {
+        const newBooks = res.data.slice(0, 100)
+        setBooks({
+          original: newBooks,
+          filtered: newBooks
+        })
+        const x = new Set(newBooks.map(book => book.language))
+        setLanguages(Array.from(x).toSorted())
+        const y = new Set(newBooks.map(book => book.date_published.slice(-4)))
+        setDates(Array.from(y).toSorted((a, b) => a - b))
       })
-      const x = new Set(newBooks.map(book => book.language))
-      setLanguages(Array.from(x).toSorted())
-      const y = new Set(newBooks.map(book => book.date_published.slice(-4)))
-      setDates(Array.from(y).toSorted((a,b) => a-b))
-    })
-  },[])
+  }, [])
 
   useEffect(() => {
     renderBooks();
@@ -43,7 +43,7 @@ export default function App() {
     }
     setBooks({ ...books, filtered: filteredBooks });
   };
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === "languages") {
@@ -53,15 +53,22 @@ export default function App() {
     }
   }
 
-  const deleteBook = (id) =>{
+  const deleteBook = (id) => {
     const updateOriginal = books.original.filter(book => book.id !== id)
     const updateFiltered = books.filtered.filter(book => book.id !== id)
-    setBooks({ original: updateOriginal, filtered: updateFiltered})
+    setBooks({ original: updateOriginal, filtered: updateFiltered })
   }
 
   return (
     <div className='App'>
-        <Book books={books} languages={languages} currentLanguage={currentLanguage} handleChange={handleChange} dates={dates} deleteBook={deleteBook}/>
+      <Book
+        books={books}
+        dates={dates}
+        languages={languages}
+        currentLanguage={currentLanguage}
+        handleChange={handleChange}
+        deleteBook={deleteBook}
+      />
     </div>
   )
 }

@@ -1,3 +1,6 @@
+import { useState } from "react";
+import Users from "./components/Users";
+
 const users = {
   id: 1,
   firt_name: "Sebastian",
@@ -12,13 +15,10 @@ const users = {
   bestFriend: "Jhon",
 };
 
-import { useState } from "react";
-import Users from "./components/Users";
+
 
 export default function App() {
   const [information] = useState(users);
-  console.log(information);
-
   return (
     <div className="container">
       <Users information={information} />

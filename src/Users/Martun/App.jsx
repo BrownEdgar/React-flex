@@ -5,7 +5,7 @@ import './App.css'
 
 export default function App() {
 	
-	const [posts] = useState([
+	const [posts, setPosts] = useState([
 		{
 			id: 1, 
 			image: 'https://images.unsplash.com/photo-1611434597131-949cdb202148?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80',
@@ -31,10 +31,19 @@ export default function App() {
 			apoutPhotograph: '1972 Ford Mustang Mach 1',
 		},
 	])
+	const [modal, setModal] = useState(false)
+	const getModal = () => {
+        setModal(!modal)
+    }
 
-	return (
+	const deleteById = (id) =>{
+		const result = posts.filter(post => post.id !== id)
+		setPosts(result)
+	}
+
+	return (	
 		<div className='container'>
-			<Users posts={posts}/>
+			<Users  posts={posts} deleteById={deleteById} getModal={getModal} modal={modal} />
 		</div>
 		)
 }

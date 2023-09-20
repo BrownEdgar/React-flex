@@ -19,13 +19,7 @@ const validationSchema = object({
 })
 
 export default function App() {
-	const [users, setUsers] = useState([
-		{
-			email: "tatev.hakobyan1997@mail.ru",
-			userName: "Tatev",
-			password: "Tatev1997"
-		}
-	])
+	const [users, setUsers] = useState([])
 	const [email, setEmail] = useState(true)
 
 	const handleSubmit = (values, {resetForm}) =>{
@@ -36,7 +30,7 @@ export default function App() {
 		const emails = users.map(user => user.email)
 		if(emails.includes(newUser.email)){
 			setUsers([...users]) 
-			setEmail(!email)
+			setEmail(false)
 		}else{
 			setUsers([...users, newUser])
 			setEmail(true)
@@ -50,7 +44,8 @@ export default function App() {
 				initialValues={initialValues}
 				onSubmit={handleSubmit}
 				validationSchema={validationSchema}
-				validateOnChange={false}>
+				validateOnChange={false}
+				validateOnBlur={true}>
 				{
 					() => {
 						return (

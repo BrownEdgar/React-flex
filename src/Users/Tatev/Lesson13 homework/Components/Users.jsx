@@ -6,60 +6,31 @@ import "./Users.scss"
 
 
 export default function Users({users}) {
-  const [userId, setUserId] = useState({})
-
-  const visiblePassword =(id)=> {
-    setUserId({...userId, [id]: false})
+  const [password, setPassword] = useState({})
+  
+  const seePassword=(id) =>{
+    setPassword({...password, [id]: !password[id]})
   }
-
-  const togglePassword = (id) => {
-    setUserId[id] === true
-  }
-  // const [icon, setIcon] = useState(false)
-
-  // const seePassword=(id) =>{
-  //   setIcon(!icon)
-  // }
-
-  // const star =(number)=>{
-  //   let string =""
-  //   for(let i = 1; i <= number.length; i++){
-  //     string += "*"
-  //   }
-  //   return string
-  // }
 
   return (
     <div className="user">
         {
           users.map(user =>{
+            const x = password[user.id] || false
             return(
               <div className="user-item" key ={user.id}>
                 <p><span className="title">Email:</span> <span>{user.email}</span></p>
                 <p><span className="title">Username:</span> <span>{user.userName}</span></p>
                 <span>Password: </span>
                 <input 
-                type={visiblePassword(user.id) ? "text" : "password"} 
-                value={user.id}/>
-
-                <span onClick={togglePassword}>
+                  type={x ? "text": "password"} 
+                  value={user.password} 
+                  className="input-password"/>
+                <span onClick={() => seePassword(user.id)}>
                   {
-                  userId[user.id] ? <AiFillEyeInvisible className="icon"/> : <AiFillEye className="icon"/>
+                    x ? <AiFillEyeInvisible className="icon"/> : <AiFillEye className="icon"/>
                   }
                 </span>
-
-                {/* {
-                  icon ? (
-                    <input type="text" value={user.password} className="input-password"/>
-                  ) : (
-                    <input type="password" value={star(user.password)} className="input-password"/>
-                  )
-                }
-                <span onClick={seePassword}>
-                  {
-                  icon ? <AiFillEyeInvisible className="icon"/> : <AiFillEye className="icon"/>
-                  }
-                </span> */}
               </div>
             )
           })
@@ -68,10 +39,9 @@ export default function Users({users}) {
   )
 }
 
-
 Users.propTypes={
   users: PropTypes.arrayOf(PropTypes.exact({
-    id: PropTypes.number,
+    id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     email: PropTypes.string,
     userName: PropTypes.string,
     password: PropTypes.string

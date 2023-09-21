@@ -6,30 +6,28 @@ import "./Users.scss"
 
 
 export default function Users({users}) {
-  const [password, setPassword] = useState({})
+  const [password, setPassword] = useState(null)
   
   const seePassword=(id) =>{
-    setPassword({...password, [id]: !password[id]})
+    setPassword(id)
   }
 
   return (
     <div className="user">
         {
           users.map(user =>{
-            const x = password[user.id] || false
             return(
               <div className="user-item" key ={user.id}>
                 <p><span className="title">Email:</span> <span>{user.email}</span></p>
                 <p><span className="title">Username:</span> <span>{user.userName}</span></p>
                 <span>Password: </span>
-                <input 
-                  type={x ? "text": "password"} 
-                  value={user.password} 
-                  className="input-password"/>
-                <span onClick={() => seePassword(user.id)}>
-                  {
-                    x ? <AiFillEyeInvisible className="icon"/> : <AiFillEye className="icon"/>
-                  }
+                <span>{password === user.id ? user.password : "*".repeat(10)}</span>
+                <span>
+                {
+                  password === user.id ? 
+                  <AiFillEyeInvisible className="icon" onClick={() => seePassword(null)}/> : 
+                  <AiFillEye className="icon" onClick={() => seePassword(user.id)}/>
+                }
                 </span>
               </div>
             )

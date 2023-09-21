@@ -1,0 +1,33 @@
+.Container{
+    width: 30%;
+    margin: 0 auto;
+    box-shadow: 0px 3px 17px grey;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    form{
+        width: 90%;
+        p{
+            color: red;
+        }
+        input{
+            width: 100%;
+            padding: 7px 20px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        input:last-of-type{
+            margin-top: 20px;
+            background-color: rgb(25, 188, 25);
+            padding: 13px 20px;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+            cursor: pointer;
+    
+        }
+    }
+
+
+}

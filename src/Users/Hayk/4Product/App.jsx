@@ -37,6 +37,9 @@ const arr =[
 export default function App() {
 	const [datas, setDatas] = useState(arr)
 	const [isOpen, setisOpen] = useState(false)
+	const [datasId, setdatasId] = useState(null)
+
+	
 
 	const truncate = (desc, stubols) =>{
 		return desc.length > stubols ? desc.slice(0, desc.indexOf(" ", stubols)) + "..." : desc;
@@ -49,6 +52,7 @@ const toggleModel = ()=>{
 	const deleteById =(id) =>{
 		const result = datas.filter(data => data.id !== id)
 		setDatas(result)
+		toggleModel()
 	}
 	
 
@@ -59,7 +63,12 @@ const toggleModel = ()=>{
 				datas.map(data => {
 					return (
 						<div className={classNames("Datas_item")} key={data.id}>
-							<span className="xmark" onClick={() => toggleModel(data.id)}>
+							<span className="xmark" onClick={() => 
+							{ 
+								setdatasId(data.id),
+								toggleModel()
+							}
+								}>
 								<FontAwesomeIcon icon={faCircleXmark} color="#fff" size="2x"/>
 							</span>
 							<img src={data.image} alt="" />
@@ -70,7 +79,8 @@ const toggleModel = ()=>{
 				})
 			}
 			{ isOpen ? <Users toggleModel={toggleModel}  datas={datas} >
-			<button  onClick={() => deleteById(datas.id)}>delete</button>
+			<button  onClick={() => deleteById(datasId)}>delete</button>
+			<button  onClick={() => toggleModel()}>cancel</button>
 			</Users> : null}
 		</div>
 	)

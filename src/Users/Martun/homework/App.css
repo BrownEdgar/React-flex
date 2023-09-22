@@ -1,0 +1,30 @@
+.container {
+    display: flow-root;
+    margin-top: 10px;
+    margin: 0px auto;
+    width: 350px;
+    text-align: center;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+    min-height: 200px;
+}
+
+hr {
+    width: 250px;
+    margin: 0 auto;
+    color: rgb(190, 153, 153);
+}
+
+ul {
+    margin: 0 auto;
+    height: 35px;
+    width: 300px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+ul:hover{
+    transition: 0.5s;
+    background-color: grey;
+    color: beige;
+}
+li {
+    margin-top: 10px;
+}

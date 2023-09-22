@@ -20,7 +20,10 @@
     "axios": "^1.5.0",
     "classnames": "^2.3.2",
     "formik": "^2.4.5",
+<<<<<<< HEAD
     "prop-types": "^15.8.1",
+=======
+>>>>>>> cd1de9f2cf8cc37f31ac38aeee21e3bb1a3498f7
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",

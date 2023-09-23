@@ -35,9 +35,13 @@ const arr = [
 ]
 
 export default function App() {
-  const [datas, setDatas] = useState(arr)
-  const [isOpen, setisOpen] = useState(false)
-  const [productId, setProductId] = useState(null)
+	const [datas, setDatas] = useState(arr)
+	const [isOpen, setisOpen] = useState(false)
+	const [datasId, setdatasId] = useState(null)
+
+	
+
+
 
   const truncate = (desc, stubols) => {
     return desc.length > stubols ? desc.slice(0, desc.indexOf(" ", stubols)) + "..." : desc;
@@ -47,36 +51,42 @@ export default function App() {
     setisOpen(!isOpen)
   }
 
-  const deleteById = (id) => {
-    const result = datas.filter(data => data.id !== id)
-    setDatas(result);
-    toggleModel()
-  }
+
+	const deleteById =(id) =>{
+		const result = datas.filter(data => data.id !== id)
+		setDatas(result)
+		toggleModel()
+	}
+	
 
 
+	return (
+		<div  className="Datas">
+						{
+				datas.map(data => {
+					return (
+						<div className={classNames("Datas_item")} key={data.id}>
+							<span className="xmark" onClick={() => 
+							{ 
+								setdatasId(data.id),
+								toggleModel()
+							}
+								}>
+								<FontAwesomeIcon icon={faCircleXmark} color="#fff" size="2x"/>
+							</span>
+							<img src={data.image} alt="" />
+							<h3 className={classNames("Datas_title")}>{data.title}</h3>
+							<p className={classNames("Datas_desc")}>{truncate(data.desc, 100)}</p>
+						</div>
+					)
+				})
+			}
+			{ isOpen ? <Users toggleModel={toggleModel}  datas={datas} >
+			<button  onClick={() => deleteById(datasId)}>delete</button>
+			<button  onClick={() => toggleModel()}>cancel</button>
+			</Users> : null}
+		</div>
+	)
 
-  return (
-    <div className="Datas">
-      {
-        datas.map(data => {
-          return (
-            <div className={classNames("Datas_item")} key={data.id}>
-              <span className="xmark" onClick={() => {
-                setProductId(data.id);
-                toggleModel()
-              }}>
-                <FontAwesomeIcon icon={faCircleXmark} color="#fff" size="2x" />
-              </span>
-              <img src={data.image} alt="" />
-              <h3 className={classNames("Datas_title")}>{data.title}</h3>
-              <p className={classNames("Datas_desc")}>{truncate(data.desc, 100)}</p>
-            </div>
-          )
-        })
-      }
-      {isOpen ? <Users toggleModel={toggleModel} datas={datas} >
-        <button onClick={() => deleteById(productId)}>delete</button>
-      </Users> : null}
-    </div>
-  )
+ 
 }

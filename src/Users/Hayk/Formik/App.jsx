@@ -2,6 +2,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik"
 import {useState} from "react"
 import {object,string} from "yup"
 import "./App.scss"
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai"
 
 const initialValues = {
     email: "",
@@ -16,17 +17,20 @@ const validationSchema = object({
 })
 export default function App() {
     const [users, setUsers] = useState([])
+  const [passwordVisibility, setPasswordVisibility] = useState(null)
+
     const handleSubmit = (values,{resetForm}) =>{
         const newUsers = {
             id: Date.now(),
             ...values
-
         }
         setUsers([...users,newUsers])
-        resetForm()
-
+        resetForm()    
     }
 
+    const showPassword = (id) => {
+        setPasswordVisibility(id)
+      }
   return (
     <div  className="Container">
         <Formik 
@@ -53,13 +57,34 @@ export default function App() {
                         <ErrorMessage name="password" component="p"/>
                         <input type="submit"  value="Save"/>
                         </Form>   
-
                     )
-     
                 }
-
             }
         </Formik>
+        <div className="User">
+            {
+                users.map(elem => {
+                    return (
+                        <div className="User_elem" key={elem.id}>
+                             <h1><span>Email: {elem.email}</span></h1>
+                             <h1><span>Username: {elem.username}</span></h1>
+                             <h1><span>Password: {
+                              passwordVisibility === elem.id
+                               ? elem.password 
+                               : "*".repeat(10)
+                             }</span></h1>
+                             <button >
+                                {
+                                passwordVisibility === elem.id
+                                 ?  <AiFillEye onClick={()=> {showPassword(null)  }}/>
+                                 : <AiFillEyeInvisible onClick={()=>{showPassword(elem.id)}}/> 
+                                }
+                             </button>       
+                        </div>
+                    )
+                })
+            }
+        </div>
 
     </div>
   )

@@ -1,13 +1,14 @@
 .Container{
-    width: 30%;
-    margin: 0 auto;
-    box-shadow: 0px 3px 17px grey;
-    padding: 1em;
-    display: flex;
-    justify-content: center;
-    border-radius: 20px;
+width: 90%;
+margin: 0 auto;
+
     form{
-        width: 90%;
+        width: 30%;
+        margin: 0 auto;
+        box-shadow: 0px 3px 17px grey;
+        padding: 1em;
+
+        border-radius: 20px;
         p{
             color: red;
         }
@@ -28,6 +29,21 @@
     
         }
     }
+    .User{
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        .User_elem{
+            width: 25%;
+            padding: 1em;
+            box-shadow: 0px 3px 17px grey;
+            border-radius: 15px;
+            background-color: rgb(91, 89, 89);
+            color: white;
+        }
+    }
+
 
 
 }

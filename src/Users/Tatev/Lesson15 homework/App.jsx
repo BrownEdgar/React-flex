@@ -18,13 +18,13 @@ export default function App() {
     })
     .then(res => res.data)
     .then(data => {
-      dispatch({type: "add-posts", payload: data} )
+      dispatch({type: "add-posts", payload: {data: data}} )
     })
     setButtonBoolean(!buttonBoolean)
   }
 
   const handelUser =() =>{
-    dispatch({type: "add-users", payload: inputValue})
+    dispatch({type: "add-users", payload: {inputValue: inputValue}})
     setInputValue("")
   }
 
@@ -74,7 +74,7 @@ export default function App() {
                   <div className="item-post" key={post.id}>
                     <span className="id">{post.id}</span>
                     <h1 className="item-title">{post.title}</h1>
-                    <AiFillCloseCircle className="icon" onClick={() => dispatch({type: "delete-post", payload: `${post.id}`})}/>
+                    <AiFillCloseCircle className="icon" onClick={() => dispatch({type: "delete-post", payload: {id: post.id}})}/>
                     <p className="item-body">{post.body}</p>
                   </div>
                 )

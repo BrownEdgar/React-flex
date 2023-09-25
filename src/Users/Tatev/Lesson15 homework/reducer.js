@@ -8,11 +8,11 @@ export const initialState = {
 
 function reducer(state, action) {
   switch(action.type){
-    case "add-posts": return addPosts(state, action.payload)
-    case "add-users": return addUsers(state, action.payload)
+    case "add-posts": return addPosts(state, action.payload.data)
+    case "add-users": return addUsers(state, action.payload.inputValue)
     case "shuffle": return shufflearr(state)
     case "replace-id-to-arrIndex": return replaceId(state)
-    case "delete-post": return deletePost(state, +action.payload)
+    case "delete-post": return deletePost(state, action.payload.id)
     default: return state
   }
 }

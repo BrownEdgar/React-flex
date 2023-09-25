@@ -1,4 +1,4 @@
 import ReactDOM from "react-dom/client";
-import App from "./Users/Edgar/Hooks/useReducer/App";
+import App from "./Users/Ararat/Hooks/App";
 import "./index.css";
 ReactDOM.createRoot(document.getElementById("root")).render(<App />);

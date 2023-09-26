@@ -12,18 +12,18 @@ export default function App() {
   const [currentLanguage, setCurrentLanguage] = useState('all');
 
 
-  useEffect(() => {
-    axios('./Books-data.json')
-      .then(res => {
-        const newBooks = res.data;
-        setBooks({
-          original: newBooks,
-          filtered: newBooks
-        })
-        const x = new Set(newBooks.map(book => book.language));
-        setLanguages(Array.from(x).toSorted())
-      })
-  }, [])
+  // useEffect(() => {
+  //   axios('./Books-data.json')
+  //     .then(res => {
+  //       const newBooks = res.data;
+  //       setBooks({
+  //         original: newBooks,
+  //         filtered: newBooks
+  //       })
+  //       const x = new Set(newBooks.map(book => book.language));
+  //       setLanguages(Array.from(x).toSorted())
+  //     })
+  // }, [])
 
 
   useEffect(() => {

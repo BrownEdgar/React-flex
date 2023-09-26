@@ -7,7 +7,7 @@ export const initialState = {
 }
 
 function reducer(state, action) {
-  switch(action.type){
+  switch (action.type) {
     case "add-posts": return addPosts(state, action.payload.data)
     case "add-users": return addUsers(state, action.payload.inputValue)
     case "shuffle": return shufflearr(state)
@@ -17,40 +17,44 @@ function reducer(state, action) {
   }
 }
 
-function addPosts(state, payload){
-  const result = [...payload]
+function addPosts(state, payload) {
+
   return {
     ...state,
-    posts: result,
-    actions: state.actions +1
+    posts: payload,
+    actions: state.actions + 1
   }
 }
 
-function addUsers(state, name){
-  if(state.developers.includes(name.toLowerCase()) || name===""){
-    return {...state}
-  }else{
-    return {...state, developers: [...state.developers, name], actions: state.actions + 1}
+function addUsers(state, name) {
+  if (state.developers.includes(name.toLowerCase()) || name === "") {
+    return state;
+  } else {
+    return {
+      ...state,
+      developers: [...state.developers, name],
+      actions: state.actions + 1
+    }
   }
 }
 
-function shufflearr(state){
+function shufflearr(state) {
   const result = state.arr.sort(() => Math.random() - 0.5)
-  return {...state, arr: result, actions: state.actions + 1}
+  return { ...state, arr: result, actions: state.actions + 1 }
 }
 
-function replaceId(state){
+function replaceId(state) {
   const result = state.posts.map((post, index) => {
     return (
-      {...post, id: state.arr[index]}
+      { ...post, id: state.arr[index] }
     )
   })
-  return {...state, posts: result}
+  return { ...state, posts: result }
 }
 
-function deletePost(state, id){
-  const result=state.posts.filter(post => post.id !== id)
-  return {...state, posts: result}
+function deletePost(state, id) {
+  const result = state.posts.filter(post => post.id !== id)
+  return { ...state, posts: result }
 }
 
 export default reducer

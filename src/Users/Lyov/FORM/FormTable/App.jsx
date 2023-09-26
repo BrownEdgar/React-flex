@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import {AiOutlineClose} from 'react-icons/ai'
+import { AiOutlineClose } from 'react-icons/ai'
 import './App.scss'
 
 export default function App() {
@@ -9,13 +9,13 @@ export default function App() {
     filtered: []
   });
   const [languages, setLanguage] = useState([])
-  const [currentLanguage, setCurrentLanguage] = useState('All Languages')
+  const [currentLanguage, setCurrentLanguage] = useState('')
 
 
   useEffect(() => {
     axios('./public/books-data.json')
       .then(res => {
-        const newBooks = res.data.slice(0,500)
+        const newBooks = res.data.slice(0, 500)
         setBooks({
           original: newBooks,
           filtered: newBooks
@@ -25,32 +25,36 @@ export default function App() {
       })
   }, [])
 
-const handleChange = (e) => {
-setCurrentLanguage(e.target.value)
-}
+  const handleChange = (e) => {
+    setCurrentLanguage(e.target.value)
+  }
 
-useEffect(() => {
-  renderBooks()
-},[currentLanguage])
+  useEffect(() => {
+    renderBooks()
+  }, [currentLanguage])
 
-const renderBooks = () => {
-  if (currentLanguage === '') {
-    setBooks({...books, filtered: books.original})
-  } else {
-  const result = books.original.filter(book => book.language === currentLanguage)
-  setBooks({...books, filtered: result})
-}
-}
-const deleteId = (id) => {
-  setBooks(books.original.filter(book => book.id !==id),
-  books.filtered.filter(book => book.id !== id))
-}
+  const renderBooks = () => {
+    if (currentLanguage === '') {
+      setBooks({ ...books, filtered: books.original })
+    } else {
+      const result = books.original.filter(book => book.language === currentLanguage)
+      setBooks({ ...books, filtered: result })
+    }
+  }
+  const deleteId = (id) => {
+    setBooks(
+      {
+        original: books.original.filter(book => book.id !== id),
+        filtered: books.filtered.filter(book => book.id !== id)
+      }
+    )
+  }
 
   return (
     <div className='Container'>
       <div className='Container-options'>
         <select name="languages" id="languages" onChange={handleChange}>
-          <option value="" selected>All Languages</option>
+          <option value="">All Languages</option>
           {
             languages.map(language => {
               return (
@@ -75,7 +79,9 @@ const deleteId = (id) => {
         </thead>
         <tbody>
           {
-            books.filtered.map((book, index) => {
+
+            books?.filtered?.map((book, index) => {
+
               return (
                 <tr key={book.id}>
                   <td>{++index}</td>
@@ -85,7 +91,7 @@ const deleteId = (id) => {
                   <td>{book.price}</td>
                   <td>{book.wants_to_read}</td>
                   <td>{book.date_published}</td>
-                  <td><AiOutlineClose onClick={() => deleteId(book.id)}/></td>
+                  <td><AiOutlineClose onClick={() => deleteId(book.id)} /></td>
                 </tr>
               )
             })

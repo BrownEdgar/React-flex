@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useMemo, useState, useTransition } from 'react'
-import Coments from './Coments'
 import './App.css'
-import Total from './Total'
+
 
 
 const comentsFilter = (coments, search) => coments.filter(item => item.name.concat(item.body).includes(search.toLowerCase()))

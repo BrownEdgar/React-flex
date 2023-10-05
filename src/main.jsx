@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import App from "./Users/Ararat/Hooks/CustomHook/App";
+import App from "./Users/Edgar/pagination/App";
 import "./index.css";
 import { BrowserRouter as Router } from "react-router-dom";
 

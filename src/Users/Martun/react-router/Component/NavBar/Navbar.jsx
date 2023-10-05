@@ -16,6 +16,9 @@ export default function Navbar() {
                     <li>
                         <Link to={ROUTES.ABOUT}>Apout</Link>
                     </li>
+                    <li>
+                        <link to={ROUTES.POSTS}>Posts</link>
+                    </li>
                 </ul>
             </nav>
         </header>

@@ -19,13 +19,11 @@ export default function App() {
 
   const maxAge = () => {
     let max = -Infinity
-    users
-      .original
-      .map(user => {
-        if (max < user.age) {
-          max = user.age
-        }
-      })
+    users.original.map(user => {
+      if (max < user.age) {
+        max = user.age
+      }
+    })
     return max
   }
 
@@ -37,9 +35,7 @@ export default function App() {
     const interval = setTimeout(() => {
       setUsers({
         ...users,
-        filtered: users
-          .original
-          .filter(user => user.age <= + e.target.value)
+        filtered: users.original.filter(user => user.age <= + e.target.value)
       })
     }, 1000);
     setCurrentId(interval)

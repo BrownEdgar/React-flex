@@ -3,18 +3,27 @@ import Home from './pages/Home'
 import Blog from './pages/Blog'
 import Err from './pages/Err'
 import About from "./pages/About";
-import { Routes, Route } from "react-router-dom";
+import Posts from "./pages/Posts";
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider} from "react-router-dom";
 import ROUTES from "./routes";
+import Layouts from "./Component/Layouts";
 export default function App(){
-    return (
-        <div>
-            <Navbar />
-            <Routes>
-                <Route path={ROUTES.HOME} element={<Home />}/>
+    
+    const router = createBrowserRouter(
+        createRoutesFromElements(
+            <Route path={ROUTES.HOME} element={<Layouts />}>
+                <Route index element={<Home />}/>
                 <Route path={ROUTES.BLOG} element={<Blog />}/>
                 <Route path={ROUTES.ERROR_PAGE} element={<Err />}/>
                 <Route path={ROUTES.ABOUT} element={<About />}/>
-            </Routes>
+                <Route path={ROUTES.POSTS} element={<Posts />}/>
+            </Route>
+        )
+    )
+
+    return (
+        <div>
+            <RouterProvider router={router}/>
         </div>
     )
 }

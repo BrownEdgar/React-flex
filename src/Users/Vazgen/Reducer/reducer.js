@@ -23,23 +23,21 @@ function reducer(state, action) {
 }
 
 function addPosts(state, payload) {
-  const result = [...payload];
   return {
     ...state,
-    posts: result,
+    posts: payload,
     actions: state.actions + 1,
   };
 }
 
 function addDevs(state, name) {
   if (state.developers.includes(name.toLowerCase()) || name === "") {
-    return { ...state };
-  } else {
-    return {
-      ...state,
-      developers: [...state.developers, name],
-      actions: state.actions + 1,
-    };
+    return state;
+  }
+  return {
+    ...state,
+    developers: [...state.developers, name],
+    actions: state.actions + 1,
   }
 }
 

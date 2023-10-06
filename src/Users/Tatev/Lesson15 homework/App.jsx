@@ -9,22 +9,22 @@ export default function App() {
   const [state, dispatch] = useReducer(reducer, initialState)
   const [buttonBoolean, setButtonBoolean] = useState(false)
   const [inputValue, setInputValue] = useState("")
- 
-  const drawUsers =() =>{
+
+  const drawUsers = () => {
     axios("https://jsonplaceholder.typicode.com/posts", {
-      params:{
-        _limit:10
+      params: {
+        _limit: 10
       }
     })
-    .then(res => res.data)
-    .then(data => {
-      dispatch({type: "add-posts", payload: {data: data}} )
-    })
+      .then(res => res.data)
+      .then(data => {
+        dispatch({ type: "add-posts", payload: { data: data } })
+      })
     setButtonBoolean(!buttonBoolean)
   }
 
-  const handelUser =() =>{
-    dispatch({type: "add-users", payload: {inputValue: inputValue}})
+  const handelUser = () => {
+    dispatch({ type: "add-users", payload: { inputValue: inputValue } })
     setInputValue("")
   }
 
@@ -32,23 +32,19 @@ export default function App() {
     <div className="Container">
       <p>Actions: {state.actions}</p>
       {
-        state.developers.length > 0 
-        ? (
-          <p>Developers: 
-            {
-              state.developers.map((user, index) => {
-                return(
-                  <span key={index}>{user}, </span>
-                )
-              })
-            }
-          </p>
-        ) : null
+        state.developers.length > 0
+          ? (
+            <p>Developers:
+              {
+                state.developers.toString()
+              }
+            </p>
+          ) : null
       }
-      <p> Arr: 
+      <p> Arr:
         {
           state.arr.map((number, index) => {
-            return(
+            return (
               <span key={index}> {index === state.arr.length - 1 ? number : `${number}, `}</span>
             )
           })
@@ -57,29 +53,29 @@ export default function App() {
       <ul>
       </ul>
       <button onClick={drawUsers} disabled={buttonBoolean}>Add posts</button>
-      <input 
-        type="text" 
-        placeholder="Enter name" 
+      <input
+        type="text"
+        placeholder="Enter name"
         value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}/>
+        onChange={(e) => setInputValue(e.target.value)} />
       <button onClick={handelUser}>Add name</button>
-      <button onClick={() => dispatch({type: "shuffle"})}>Shuffle</button>
-      <button onClick={() => dispatch({type: "replace-id-to-arrIndex"})}>Replace id to index</button>
+      <button onClick={() => dispatch({ type: "shuffle" })}>Shuffle</button>
+      <button onClick={() => dispatch({ type: "replace-id-to-arrIndex" })}>Replace id to index</button>
       <div className="item">
         {
-          state.posts.length > 0 
-          ? (
-              state.posts.map(post =>{
-                return(
+          state.posts.length > 0
+            ? (
+              state.posts.map(post => {
+                return (
                   <div className="item-post" key={post.id}>
                     <span className="id">{post.id}</span>
                     <h1 className="item-title">{post.title}</h1>
-                    <AiFillCloseCircle className="icon" onClick={() => dispatch({type: "delete-post", payload: {id: post.id}})}/>
+                    <AiFillCloseCircle className="icon" onClick={() => dispatch({ type: "delete-post", payload: { id: post.id } })} />
                     <p className="item-body">{post.body}</p>
                   </div>
                 )
-              }) 
-          ) : null
+              })
+            ) : null
         }
       </div>
     </div>

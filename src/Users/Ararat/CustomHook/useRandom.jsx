@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 function getRandNumber(min, max) {
-  return Math.floor(Math.random() * (max - min + 1));
+  return Math.floor(Math.random() * (max - min) + min);
 }
 
 function getRandLetter(elem) {
@@ -15,12 +15,11 @@ function useRandom(count, type, font = 'upper') {
 
   useEffect(() => {
     const genRandData = () => {
-
       if (type == 'number') {
         const randNumbers = [];
 
         for (let i = 0; i < count; i++) {
-          randNumbers.push(getRandNumber(1, 99));
+          randNumbers.push(getRandNumber(60, 99));
         }
         setRandData(randNumbers);
 

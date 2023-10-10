@@ -9,7 +9,7 @@ export default function Edit({users, setUsers}) {
   console.log(id);
   
   useEffect(() => {
-    const editUser = users.find(user => parseInt(user.id) === parseInt(id))
+    const editUser = users.find(user => user.id === id)
     setUser(editUser)
   }, [id])
 

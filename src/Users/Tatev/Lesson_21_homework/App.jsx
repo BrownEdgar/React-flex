@@ -10,19 +10,19 @@ import Edit from './Edit/Edit';
 export default function App() {
   const [users, setUsers] = useState([
       {
-          id: 1,
+          id: uuidv4(),
           full_name: "John",
           about: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. In quis eveniet cum. Sed cum necessitatibus magni inventore excepturi perferendis nobis, qui architecto similique pariatur dolores distinctio deserunt explicabo rem maiores. Laborum distinctio non, quos autem obcaecati alias voluptatibus optio odit. Fugit a iure quisquam modi distinctio veritatis harum consequuntur fugiat?",
           email: "john@mail.ru",
       },
       {
-          id: 2,
+          id: uuidv4(),
           full_name: "Tatev",
           about: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit aspernatur tenetur minus dicta maxime sunt praesentium. Voluptas minus illum qui!",
           email: "tatev@mail.ru",
       },
       {
-          id: 3,
+          id: uuidv4(),
           full_name: "Jesica",
           about: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, sed.",
           email: "Jesica@mail.ru",

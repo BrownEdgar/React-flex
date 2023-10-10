@@ -8,7 +8,6 @@ a {
   color: inherit;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+body {
+  font-family: 'Raleway', sans-serif;
 }

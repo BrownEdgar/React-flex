@@ -1,0 +1,13 @@
+.Posts {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  flex-wrap: wrap;
+  a {
+    padding: 0.6em;
+    border: 1px solid grey;
+    flex-basis: 40%;
+    flex-grow: 1;
+    border-radius: 10px;
+  }
+}

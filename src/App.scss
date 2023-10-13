@@ -1,0 +1,18 @@
+:root {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.App {
+  padding: 10px;
+  justify-content: center;
+  text-align: justify;
+  &__title {
+    text-align: center;
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+}

@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import App from "./Users/Edgar/Practika/App";
+import App from "./Users/Martun/Practika/App";
 
 import "./index.css";
 

@@ -1,0 +1,38 @@
+.Comments{
+    margin: 20px auto;
+    padding: 1em;
+    text-align: center;
+    &_count{
+        padding: 0.5em;
+        width: 10%;
+        background-color: #92c4f3;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+    }
+    &_items {
+        width: 100%;
+        margin: 20px auto;
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    &__item {
+        width: 95%;
+        padding: 10px;
+        background-color: #92c4f3;
+        text-align: start;
+        border-radius: 7px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        transition: all 0.3s;
+        &:hover {
+          transform: translateY(-10px);
+          cursor: pointer;
+          background-color: #072847;
+          color: #ffffff;
+        }
+  }
+}

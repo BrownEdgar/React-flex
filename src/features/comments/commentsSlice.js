@@ -37,7 +37,7 @@ const CommentsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getComments.pending, (state) => {
-        state.ispending = "true";
+        state.isPending = "true";
         state.status = "pending";
       })
       .addCase(getComments.fulfilled, (_, action) => {

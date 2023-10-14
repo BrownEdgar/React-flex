@@ -1,22 +1,22 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { addUser, deleteUser } from './features/users/usersSlice'
-import Todos from './comnponents/Todos';
+import { delteProducts, getProducts } from './features/products/ProductSlice';
+
 
 export default function App() {
-  const users = useSelector((state) => state.users)
+  const products = useSelector((state) => state.products)
   const dispath = useDispatch();
+  useEffect(() => {
+    dispath(getProducts())
+  }, [])
 
-  const handleDelete = () => {
-    dispath(deleteUser({ name: "Karen" }))
-  }
+
   return (
     <div>
-      <h1>React-flex</h1>
-      <h2> {JSON.stringify(users, null, 1)}</h2>
-      <button onClick={() => dispath(addUser({ name: "Valod" }))}>add user</button>
-      <button onClick={handleDelete}>delete Karen</button>
-      <hr />
-      <Todos />
+      <button onClick={() => dispath(delteProducts({ id: 1 }))}>Delete product N1</button>
+      <pre>
+        {JSON.stringify(products, null, 1)}
+      </pre>
     </div>
   )
 }

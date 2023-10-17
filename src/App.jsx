@@ -29,7 +29,6 @@ export default function App() {
       <pre>
         {JSON.stringify(todos, null, 1)}
       </pre>
-      <button onClick={() => dispath(increment())}>increment</button>
       <form autoComplete='off' className='App-form' onSubmit={handleSubmit}>
         <input type="text" placeholder='actors full name' required />
         <input type="number" placeholder='age' min={18} max={100} required />

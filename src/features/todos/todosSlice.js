@@ -5,13 +5,13 @@ const todosSlice = createSlice({
   name: 'todos',
   initialState: {
     data: [],
-    count: 0
+    count: 1
   },
   reducers: {
 
   },
   extraReducers: (builder) => {
-    builder.addCase(increment, (state, action) => {
+    builder.addCase(increment, (state) => {
       state.count = state.count + 1
     })
   }

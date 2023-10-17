@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import usersSlice from '../features/users/usersSlice';
-import todosSlice from '../features/todos/todosSlice';
+import todosSlice, { increment } from '../features/todos/todosSlice';
 
 // //  {
 //   getState
@@ -24,13 +24,19 @@ const addIdAddRole = () => (next) => (action) => {
   }
   next(action)
 }
+const addCountMiddleware = (store) => (next) => (action) => {
+  if (action.type === 'users/addUser') {
+    store.dispatch(increment());
+  }
+  next(action)
+}
 
 const store = configureStore({
   reducer: {
     users: usersSlice,
     todos: todosSlice
   },
-  middleware: [checkName, addIdAddRole]
+  middleware: [checkName, addIdAddRole, addCountMiddleware]
 })
 
 export default store

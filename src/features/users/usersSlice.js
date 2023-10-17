@@ -21,6 +21,7 @@ const usersSlice = createSlice({
       state.push(action.payload.person)
     }
   }
+
 })
 
 export const selectAllUsers = (state) => state.users;

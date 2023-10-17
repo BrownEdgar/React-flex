@@ -1,28 +1,20 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialUsersValue = [
-  'Anahit',
-  'Lusine',
-  'Karen',
-  'Levon'
+  { id: 1, fullName: 'Bruce Li', age: 34, role: 'actor', image: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSDEMsZVwmBXLxjhrYOomvtFZrIMHfm050QjsjKijUzydwIL8AY' }
 ]
-const usersSliec = createSlice({
+
+const userSlice = createSlice({
   name: 'users',
   initialState: initialUsersValue,
   reducers: {
-    addUser: (state, action) => {
-      // state.push(action.payload.name)
-      if (!state.includes(action.payload.name)) {
-        return [...state, action.payload.name]
-        // state.push(action.payload.name)
-      }
-    },
-    deleteUser: (state, action) => {
-      return state.filter(user => user !== action.payload.name)
+    addUser(state, action) {
+      state.push(action.payload.person)
     }
   }
 })
-export default usersSliec.reducer
-export const { addUser, deleteUser } = usersSliec.actions
 
 
+export const selectAllUsers = (state) => state.users;
+export default userSlice.reducer
+export const { addUser, deleteUser } = userSlice.actions

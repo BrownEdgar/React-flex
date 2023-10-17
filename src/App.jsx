@@ -1,41 +1,47 @@
-// import {useDispatch, useSelector} from 'react-redux'
-// import { addUser, deleteUser } from './features/users/usersSlice'
+import {useDispatch, useSelector} from 'react-redux'
+import { addUser, selectAllUsers } from './features/users/usersSlice'
+import './App.css'
 
-// export default function App() {
-//   const users = useSelector((state) => state.users)
-//   const dispatch = useDispatch()
-//   const handleDelete = () => {
-//     dispatch(deleteUser({name: 'Karen'}))
-//   }
-//   return (
-//     <div>
-//       <h1>React-flex</h1>
-//       <h2>{JSON.stringify(users, null, 1)}</h2>
-//       <button onClick={() => dispatch(addUser({name: 'Valod'}))}>Add User</button>
-//       <button onClick={handleDelete}>Delete Karen</button>
-//     </div>
-//   )
-// }
-
-
-
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
-import { deleteProducts, getProducts } from './features/products/productsSlice';
 
 export default function App() {
-  const products = useSelector((state) => state.products);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getProducts())
-  }, [])
+  const users = useSelector(selectAllUsers)
+  const dispatch = useDispatch()
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  const [fullName, age, imageUrl] = e.target;
+  const person = {
+    fullName: fullName.value,
+    age: age.value,
+    image: imageUrl.value
+  }
+  dispatch(addUser({person}))
+}
 
   return (
-    <div>
-      <button onClick={() => dispatch(deleteProducts({ id: 1 }))}>Delete product N1</button>
-      <pre>
-        {JSON.stringify(products, null, 1)}
-      </pre>
+    <div className='App'>
+      <form autoComplete='off' className='App-form' onSubmit={handleSubmit}>
+        <input type="text" placeholder='Actors FullName' required/>
+        <input type="number" placeholder='Age' min={18} max={100} required/>
+        <input type="url" placeholder='Paste image url here' required/>
+        <input type="submit" value={'add'} />
+      </form>
+      <div className='App-container'>
+        {
+          users.map(elem => {
+            return (
+              <div key={elem.id} className='App-item'>
+                <div>
+                <span id='actore_id'>{elem.id}</span>
+                 <h3>{elem.fullName}</h3>
+                 <span>Age: {elem.age}</span>
+                </div>
+                <img src={elem.image} alt={elem.id} />
+              </div>
+            )
+          })
+        }
+      </div>
     </div>
   )
 }

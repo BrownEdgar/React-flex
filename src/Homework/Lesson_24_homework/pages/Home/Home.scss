@@ -1,0 +1,43 @@
+.Container {
+  width: 90%;
+  margin: 50px auto;
+  button {
+    background-color: #fa206c;
+    cursor: pointer;
+    padding: 10px 15px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+  }
+  &-items {
+    width: 90%;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 30px;
+    &-flex{
+      width: 30%;
+      border: 1px solid #fa206c;
+      padding: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+      position: relative;
+      span {
+        display: block;
+        text-align: right;
+        padding-bottom: 10px;
+      }
+      p {
+        margin-bottom: 5px;
+      }
+      h2 {
+        margin-bottom: 10px;
+      }
+      &:hover {
+        background-color: #fa206c;
+        color: white;
+      }
+    }
+  }
+}

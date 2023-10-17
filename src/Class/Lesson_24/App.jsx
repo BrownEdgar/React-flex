@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { addUSer, selectAllUsers } from "./features/users/usersSlice"
+import { addUser, selectAllUsers } from "./features/users/usersSlice"
 import "./App.scss"
 
 export default function App() {
@@ -15,7 +15,7 @@ export default function App() {
       age: +age.value,
       image: imageUrl.value
     }
-    dispatch(addUSer({person}))
+    dispatch(addUser({person}))
   }
 
   return (

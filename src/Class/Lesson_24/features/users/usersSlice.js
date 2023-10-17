@@ -1,4 +1,4 @@
-import { createAction, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialUsersValue = [
   {
@@ -10,13 +10,12 @@ const initialUsersValue = [
   }
 ]
 
-// export const increment = createAction("counter/increment")
 
 const usersSlice = createSlice({
   name: "users",
   initialState: initialUsersValue,
   reducers: {
-    addUSer(state, action){
+    addUser(state, action){
       state.push(action.payload.person)
     }
   }
@@ -25,4 +24,4 @@ const usersSlice = createSlice({
 export const selectAllUsers = (state) => state.users
 
 export default usersSlice.reducer
-export const {addUSer} = usersSlice.actions
+export const {addUser} = usersSlice.actions

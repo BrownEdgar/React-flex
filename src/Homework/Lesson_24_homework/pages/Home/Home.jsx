@@ -1,17 +1,15 @@
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import { getUsers } from "../../features/users/usersSlice"
 import "./Home.scss"
-import { addCount, getCount } from "../../features/count/countSlice"
-import { useEffect } from "react"
+import { getCount } from "../../features/count/countSlice"
 
 export default function Home() {
   const users = useSelector(getUsers)
   const count = useSelector(getCount)
-  const dispatch = useDispatch()
 
-  useEffect(() => {
-    dispatch(addCount({count: users.length}))
-  }, [dispatch, users.length])
+  // useEffect(() => {
+  //   dispatch(addCount({count: users.length}))
+  // }, [dispatch, users.length])
   
   
 

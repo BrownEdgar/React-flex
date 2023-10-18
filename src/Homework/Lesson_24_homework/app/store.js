@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import usersSlice from "../features/users/usersSlice";
-import countSlice from "../features/count/countSlice";
+import {addUser} from "../features/users/usersSlice"
+import countSlice, { addCount } from "../features/count/countSlice";
 
 const checkEmail = (store) => (next) => (action) =>{
   let isEmailExist = false
@@ -19,13 +20,20 @@ const addIdAndDate = () => (next) => (action) =>{
   next(action)
 }
 
+const addCountValue =(store) => (next) => (action) =>{
+  if(action.type === addUser.type){
+    store.dispatch(addCount())
+  }
+  next(action)
+}
+
 const store = configureStore({
   reducer: {
     users: usersSlice,
     count: countSlice
   },
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat([checkEmail, addIdAndDate])
+    return getDefaultMiddleware().concat([checkEmail, addIdAndDate, addCountValue])
   }
 })
 

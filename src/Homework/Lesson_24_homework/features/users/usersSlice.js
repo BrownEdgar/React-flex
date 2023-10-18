@@ -23,4 +23,4 @@ const usersSlice = createSlice({
 export const getUsers = (state => state.users)
 
 export default usersSlice.reducer
-export const {} = usersSlice.actions
+export const { addUser } = usersSlice.actions

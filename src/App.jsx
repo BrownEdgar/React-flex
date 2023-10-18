@@ -1,19 +1,31 @@
-import Comments from "./Components/Comments/Comments";
+import { useState } from "react";
+import {
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from "react-router-dom";
+import { Layouts, Shop, Card } from "./Components";
 import "./App.scss";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { getComments } from "./features/comments/commentsSlice";
 
 export default function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getComments());
-  }, [dispatch]);
+  const [lengthOfItems, setLengthOfItems] = useState(0);
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<Layouts itemLength={lengthOfItems} />}>
+        <Route
+          index
+          element={
+            <Shop itemLength={lengthOfItems} setLength={setLengthOfItems} />
+          }
+        />
+        <Route path="/card" element={<Card />} />
+      </Route>
+    )
+  );
   return (
     <div className="App">
-      <h2 className="App__title">Posts</h2>
-      <Comments />
+      <RouterProvider router={router} />
     </div>
   );
 }

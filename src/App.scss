@@ -1,18 +1,11 @@
-:root {
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
 .App {
-  padding: 10px;
-  justify-content: center;
-  text-align: justify;
+  font-family: "Poppins", sans-serif;
   &__title {
+    font-size: 30px;
+    font-weight: 400;
     text-align: center;
-    font-weight: 300;
-    text-transform: uppercase;
+    color: rgb(33, 33, 33);
   }
 }

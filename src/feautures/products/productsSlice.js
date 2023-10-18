@@ -25,7 +25,7 @@ const productSlice = createSlice({
         builder
         .addCase(getProducts.pending, (state) => {
             state.ispending = true;
-            state.status = pending
+            state.status = 'pending'
         })
         .addCase(getProducts.fulfilled, (_, action) => {
             return{

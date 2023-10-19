@@ -2,7 +2,7 @@ import Slider from "react-slick";
 import "./Slide.css"
 
 
-export default function Slide({datas}) {
+export default function Slide({ datas }) {
   const settings = {
     infinite: true,
     speed: 500,
@@ -13,8 +13,8 @@ export default function Slide({datas}) {
     <div>
       <Slider {...settings}>
         {datas.map(data => {
-          return(
-            <div key ={data.id}>
+          return (
+            <div key={data.id} className='box'>
               <img src={data.image} alt={data.title} />
               <h3>{data.title}</h3>
               <p>{data.item}</p>

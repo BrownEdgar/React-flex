@@ -1,0 +1,16 @@
+.Link {
+  display: flex;
+  gap: 6px;
+  a {
+    padding: 4px 8px;
+    border-radius: 6px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid grey;
+    font-size: 20px;
+    color: grey;
+    &:hover{
+      color: black;
+    }
+  }
+}

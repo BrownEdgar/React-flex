@@ -1,0 +1,37 @@
+.Form {
+    width: min(70%, 600px);
+    padding: 1em;
+    margin: 16px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #111;
+    form {
+      width: 100%;
+      padding: 10px;
+      font-size: 20px;
+      div {
+        label {
+            display: block;
+            margin-bottom: 4px;
+        }
+        input, textarea {
+          width: 100%;
+          padding: 1em 0.6em;
+          border-radius: 6px;
+          margin-bottom: 6px;
+          border: 1px solid grey;
+          &[type = "submit"]{
+            background-color: teal;
+            color: white;
+            cursor: pointer;
+          }
+        }
+        textarea {
+           resize: none;
+          font-size: 16px;
+        }
+      }
+    }
+}

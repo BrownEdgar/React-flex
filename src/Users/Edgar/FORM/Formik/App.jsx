@@ -1,10 +1,7 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { useState } from 'react'
-
 import { object, string } from "yup"
-
 import './App.scss'
-
 
 const initialValues = {
   email: '',
@@ -31,12 +28,6 @@ export default function App() {
   }
   return (
     <div className='Container'>
-      {/* <form>
-        <input type="text" id='email' placeholder='email' required />
-
-        <input type="password" id='password' placeholder='password' required />
-        <input type="submit" value="register" />
-      </form> */}
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
@@ -46,7 +37,6 @@ export default function App() {
       >
         {
           (formik) => {
-
             return (
               <Form>
                 <pre>
@@ -70,16 +60,11 @@ export default function App() {
                     )
                   }
                 </ErrorMessage>
-
-
                 <input type="submit" value="register" />
               </Form>
             )
           }
         }
-
-
-
       </Formik>
     </div>
   )

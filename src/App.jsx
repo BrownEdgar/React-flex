@@ -1,49 +1,96 @@
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { getProducts } from "./feautures/products/productsSlice"
-import { addUser, selectAllUsers } from "./feautures/useres/usersSlice"
-import './App.css'
+import { useEffect, useState } from 'react'
+
+import "./App.scss"
+import { Route, Router } from 'react-router'
+import Cards from './pages/Cards'
 
 export default function App() {
-  const users = useSelector(selectAllUsers)
-  const dispach = useDispatch()
+  const [data, setData] = useState(
+    [
+      {
+        id: 1,
+        image: 'https://github.com/anuzbvbmaniac/Responsive-Product-Card---CSS-ONLY/blob/master/assets/img/jordan_proto.png?raw=true',
+        title: 'Jordan Proto-Lyte',
+        description: 'Featuring soft foam cushioning and lightweight, woven fabric in the upper, the Jordan Proto-Lyte is made for all-day, bouncy comfort. Lightweight Breathability: Lightweight woven fabric with real or synthetic leather provides breathable support. Cushioned Comfort: A full-length foam midsole delivers lightweight, plush cushioning. Secure Traction: Exaggerated herringbone-pattern outsole offers traction on a variety of surfaces.',
+        price: '12,800',
+        brand: "nike"
+      },
+      {
+        id: 4,
+        image: 'https://github.com/anuzbvbmaniac/Responsive-Product-Card---CSS-ONLY/blob/master/assets/img/jordan_proto.png?raw=true',
+        title: 'Jordan Proto-Lyte',
+        description: 'Featuring soft foam cushioning and lightweight, woven fabric in the upper, the Jordan Proto-Lyte is made for all-day, bouncy comfort. Lightweight Breathability: Lightweight woven fabric with real or synthetic leather provides breathable support. Cushioned Comfort: A full-length foam midsole delivers lightweight, plush cushioning. Secure Traction: Exaggerated herringbone-pattern outsole offers traction on a variety of surfaces.',
+        price: '12,800',
+        brand: "nike"
+      },
+      {
+        id: 2,
+        image: 'https://github.com/anuzbvbmaniac/Responsive-Product-Card---CSS-ONLY/blob/master/assets/img/jordan_proto.png?raw=true',
+        title: 'Jordan Proto-Lyte',
+        description: 'Featuring soft foam cushioning and lightweight, woven fabric in the upper, the Jordan Proto-Lyte is made for all-day, bouncy comfort. Lightweight Breathability: Lightweight woven fabric with real or synthetic leather provides breathable support. Cushioned Comfort: A full-length foam midsole delivers lightweight, plush cushioning. Secure Traction: Exaggerated herringbone-pattern outsole offers traction on a variety of surfaces.',
+        price: '12,800',
+        brand: "nike"
+      },
+      {
+        id: 3,
+        image: 'https://github.com/anuzbvbmaniac/Responsive-Product-Card---CSS-ONLY/blob/master/assets/img/jordan_proto.png?raw=true',
+        title: 'Jordan Proto-Lyte',
+        description: 'Featuring soft foam cushioning and lightweight, woven fabric in the upper, the Jordan Proto-Lyte is made for all-day, bouncy comfort. Lightweight Breathability: Lightweight woven fabric with real or synthetic leather provides breathable support. Cushioned Comfort: A full-length foam midsole delivers lightweight, plush cushioning. Secure Traction: Exaggerated herringbone-pattern outsole offers traction on a variety of surfaces.',
+        price: '12,800',
+        brand: "nike"
+      },
+    ]
+  )
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const [ fullName, age, image ] = e.target
-    
-    const person = {
-      fullName: fullName.value,
-      age: +age.value,
-      image: image.value,
+  useEffect(() => {
+    localStorage.setItem('products', JSON.stringify([]))
+    return () => {
+      localStorage.removeItem("products")
     }
-    dispach(addUser({person}))
+  }, [])
+
+
+  const addToCard = (id) => {
+    const products = JSON.parse(localStorage.getItem('products'));
+    const loacaleProduct = products.find(product => product.id === id);
+    if (loacaleProduct) {
+      loacaleProduct.count += 1;
+    } else {
+      const p = { ...data.find(product => product.id === id) };
+      p.count = 1
+      products.push(p)
+    }
+    localStorage.setItem('products', JSON.stringify(products))
   }
 
   return (
-    <div className="App">
-      <form autoComplete="off" className="App-form" onSubmit={handleSubmit}>
-        <input type="text" placeholder="actors full ame" required />
-        <input type="number" placeholder="age" min={18} max={100} required />
-        <input type="url" required />
-        <input type="submit" value={'Add'} />
-      </form>
-      <div className="App-container">
+    <div className='container'>
+      <h1>Our products</h1>
+      <div className="container-grid">
         {
-          users.map(elem => {
+          data.map(product => {
             return (
-              <div key={elem.id} className="App-item">
-                <div>
-                <span id="actor_id">{elem.id}</span>
-                <h3>{elem.fullName}</h3>
-                <span>age: {elem.age}</span>
+              <div className="container-block" key={product.id}>
+                <div className="container-Left">
+                  <span>{product.brand}</span>
+                  <img src={product.image} alt={product.title} />
                 </div>
-                <img src={elem.image}/>
+                <div className="container-Right">
+                  <h3>{product.title}</h3>
+                  <span>RUNNING COLLECTION</span>
+                  <p className='container-desc'>
+                    {product.description}
+                  </p>
+                  <div className="container-Footer">
+                    <p>{product.price}</p>
+                    <button onClick={() => addToCard(product.id)}>add to card</button>
+                  </div>
+                </div>
               </div>
             )
           })
         }
-      </div>
-    </div>
+      </div> 
+         </div>
   )
 }

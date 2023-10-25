@@ -1,0 +1,12 @@
+div {
+  padding: 1em;
+  border: 1px solid teal;
+}
+
+pre {
+  font-size: 20px;
+  margin: 6px;
+  background-color: black;
+  color: white;
+  padding: 1em;
+}

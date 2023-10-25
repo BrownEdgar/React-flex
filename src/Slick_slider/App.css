@@ -1,0 +1,30 @@
+
+.Categories{
+    text-align: center;
+    margin: 50px;
+}
+.box{
+    width: 300px;
+    min-height: 200px;
+    text-align: center;
+    margin: 0 auto;
+}
+.box-image{
+    width: 200px;
+    height: 150px;
+    margin: 0 auto;
+}
+.title{
+    margin-top: 10px;
+}
+
+.item{
+    color: grey;
+    margin-top: 5px;
+}
+
+.slick-arrow {
+    background-color: black;
+    height: 100px;
+    
+}

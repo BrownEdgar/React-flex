@@ -1,18 +1,45 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
-
 .App {
-  font-family: "Poppins", sans-serif;
-  &__title {
-    font-size: 30px;
-    font-weight: 400;
-    text-align: center;
-    color: rgb(33, 33, 33);
+  width: 70%;
+  position: relative;
+  margin: 100px auto;
+  justify-content: center;
+  color: white;
+  background-color: #3b3b3b;
+  padding: 20px;
+  border-radius: 12px;
+  &__items {
+    text-align: left;
+    margin-bottom: 12px;
   }
-}
-
-h2 {
-  margin-top: 20px;
-  text-align: center;
-  font-weight: 600;
-  color: #3498db;
+  &__title {
+    font-size: 2.6rem;
+    font-weight: 700;
+    letter-spacing: -0.05rem;
+    width: 700px;
+  }
+  &__description {
+    font-size: 1.05rem;
+    margin-top: 1.5rem;
+    width: 700px;
+    letter-spacing: -0.01rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+  &__select {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0 0 10px 10px;
+    background-color: rgb(33, 33, 33);
+    border-radius: 0 12px;
+    select {
+      width: 50px;
+      padding: 15px;
+      border-radius: 0 12px;
+      cursor: pointer;
+      border: 0;
+      background-color: #3b3b3b;
+      color: white;
+    }
+  }
 }

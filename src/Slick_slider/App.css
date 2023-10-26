@@ -8,6 +8,7 @@
     min-height: 200px;
     text-align: center;
     margin: 0 auto;
+    display: block;
 }
 .box-image{
     width: 200px;
@@ -16,6 +17,11 @@
 }
 .title{
     margin-top: 10px;
+}
+
+.title:hover{
+    transition: 0.3s;
+    color: yellowgreen;
 }
 
 .item{

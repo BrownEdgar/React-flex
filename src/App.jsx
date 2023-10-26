@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Provider from "./i18n/Provider";
-import Translate from "./i18n/translate";
+import Translate from "./i18n/Translate";
 import { LOCALES } from "./i18n/locales";
 
 

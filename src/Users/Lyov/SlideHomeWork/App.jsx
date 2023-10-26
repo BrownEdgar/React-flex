@@ -63,7 +63,7 @@ export default function App() {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 600,
     slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: false,

@@ -8,7 +8,6 @@ export default function Layouts() {
   return (
     <div>
       <Navbar />
-
       <Outlet />
     </div>
   )

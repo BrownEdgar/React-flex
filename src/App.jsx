@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import "./App.scss"
 
 export default function App() {
-  const [data, setData] = useState(
+  const [data, ] = useState(
     [
       {
         id: 1,

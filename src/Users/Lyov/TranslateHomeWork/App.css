@@ -1,0 +1,33 @@
+body {
+  background-color: black;
+}
+
+.title {
+  color: #fff;
+  width: 680px;
+  font-size: 50px;
+}
+
+.desc {
+  color: #fff;
+  width: 750px;
+  font-size: 20px;
+}
+
+.desc1 {
+  color: #fff;
+  width: 750px;
+  font-size: 20px;
+}
+
+#language {
+  background-color: black;
+  color: #fff;
+  margin-left: 10px;
+  border-radius: 10px;
+}
+
+.icon {
+  margin-left: 10px;
+  font-size: 15px;
+}

@@ -1,0 +1,107 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #222;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.nav-item {
+  list-style: none;
+  display: inline;
+  margin-right: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #00f;
+}
+
+.translation-select {
+  margin-top: 20px;
+}
+
+.post-container {
+  background-color: #111;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.post-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #00f;
+}
+
+.post-content {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.language-select {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #333;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.language-select option {
+  background-color: #222;
+  color: #fff;
+}
+
+.language-select::after {
+  color: #fff;
+}
+
+.language-select:hover::after {
+  color: #00f;
+}
+
+.translation-select select {
+  padding: 5px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #444;
+  color: #fff;
+}
+
+.translation-select select option {
+  background-color: #444;
+  color: #fff;
+}
+
+.translation-select select::after {
+  color: #fff;
+}
+
+.translation-select select:hover::after {
+  color: #00f;
+}

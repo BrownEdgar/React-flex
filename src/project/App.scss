@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+
+.container {
+  width: 96%;
+  margin: 20px auto;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+
+  &-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+    grid-auto-rows: 1fr;
+  }
+
+  &-block {
+    display: flex;
+  }
+
+  &-Right {
+    flex-grow: 1;
+    flex-basis: 50%;
+    padding: 1em;
+    text-align: left;
+    position: relative;
+
+    h3 {
+      color: rgb(33, 33, 33);
+      margin-bottom: 16px;
+      font-size: 1.5em;
+    }
+
+    span {
+      color: #999;
+      font-weight: 700;
+      font-size: 0.75em;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    p {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+  }
+
+  &-Left {
+    flex-grow: 1;
+    flex-basis: 50%;
+    background-color: rgb(33, 33, 33);
+
+    span {
+      font-size: 4em;
+      color: #1d1c1c;
+      text-transform: capitalize;
+      font-weight: 900;
+      text-align: left;
+      padding-left: 40px;
+      display: block;
+    }
+
+    img {
+      transform: rotate(-30deg);
+      object-fit: cover;
+      position: relative;
+      top: 50px;
+      width: 120%;
+    }
+  }
+
+  &-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 30px;
+
+    p {
+      color: rgb(33, 33, 33);
+      font-weight: 900;
+      font-size: 2em;
+    }
+
+    button {
+      background-color: rgb(33, 33, 33);
+      color: #fff;
+      font-weight: 500;
+      cursor: pointer;
+      padding: 0.6em 1em;
+      font-size: 18px;
+      border-radius: 50px;
+      border: 0;
+    }
+  }
+}
+
+.open-cart-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: black;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+}

@@ -1,0 +1,18 @@
+*{
+  color: white;
+}
+
+.Container{
+  width: 50%;
+  padding: 20px 0 0 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  h1 {
+    font-size: 45px;
+  }
+  p {
+    font-size: 18px;
+  line-height: 30px;
+  }
+}

@@ -1,0 +1,54 @@
+header {
+  width: 100%;
+  height: 80px;
+  padding: 1em 4em;
+  background-color: black;
+  color: grey;
+  display: flex;
+  nav {
+    width: 60%;
+    height: 100%;
+    ul {
+      list-style: none;
+      font-size: 18px;
+      height: 100%;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      color: grey;
+      a {
+        text-decoration: none;
+        color: grey;
+        &:hover{
+          border-bottom: 1px solid grey;
+        }
+      }
+    }
+  }
+  .languages {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+    width: 40%;
+    padding: 1em;
+    .language {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      &:hover a {
+        color: red;
+      }
+      a{
+        font-size: 12px;
+      }
+      img {
+        width: 30px;
+        height: 20px;
+        object-fit: contain;
+        cursor: pointer;
+      }
+    }
+  }
+}
